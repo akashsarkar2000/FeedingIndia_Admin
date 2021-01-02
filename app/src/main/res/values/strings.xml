@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">FI-Admin</string>
+    <string name="forget_password_username">FORGET PASSWORD/USERNAME?</string>
+    <string name="log_in">Log In</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="welcome">WELCOME</string>
+    <string name="email_error">Please enter your email address</string>
+    <string name="postError">Please enter your email address</string>
+    <string name="name_error">Please enter your name</string>
+    <string name="phone_error">Please enter your phone number</string>
+    <string name="profession_error">Please enter your profession</string>
+    <string name="registration_error">Please enter registration number</string>
+
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="password_error">Please enter a password</string>
+    <string name="error_invalid_password">Please enter a minimum password of 6 characters</string>
+    <string name="charity_name" />
+</resources>

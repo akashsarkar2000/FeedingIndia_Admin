@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    >
+
+
+    <TextView
+        android:id="@+id/Welcome"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/welcome"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textColor="@color/purple_200"
+        android:layout_margin="100dp"
+        android:transitionName="logo_text"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        >
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_account_icon"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:hint="@string/email"
+            android:inputType="text"
+            android:paddingStart="8dp"
+            android:paddingLeft="8dp"
+            android:drawableLeft="@drawable/custom_account_icon"
+            tools:ignore="RtlSymmetry,TextFields" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Login_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:drawableStart="@drawable/custom_lock_icon"
+            android:drawablePadding="15dp"
+            android:paddingStart="8dp"
+            android:hint="@string/password"
+            android:background="@drawable/custom_input"
+            android:inputType="textPassword"
+            android:drawableLeft="@drawable/custom_lock_icon"
+            android:paddingLeft="8dp"
+            tools:ignore="RtlSymmetry" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/forget_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="188dp"
+        android:layout_marginBottom="17dp"
+        android:padding="10dp"
+        android:text="@string/forget_password_username"
+        android:textSize="12sp"
+        android:textStyle="italic"
+
+        app:layout_constraintBottom_toTopOf="@+id/Login_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginLeft="188dp" />
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/register_button"
+        android:text="@string/log_in"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/signin_button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/register_button"
+        android:text="Sign In"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</LinearLayout>
