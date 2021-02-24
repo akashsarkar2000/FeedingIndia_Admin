@@ -6,7 +6,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -25,6 +27,8 @@ public class CharityList extends AppCompatActivity {
     private RecyclerView mUsersList;
     private DatabaseReference mUsersDatabase;
     private ProgressDialog mProgressDialog;
+    private AlertDialog.Builder builder;
+    private String deleteUid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,8 @@ public class CharityList extends AppCompatActivity {
         setContentView(R.layout.activity_charity_list);
 
         mToolbar = findViewById(R.id.charity_list_toolbar);
+        builder = new AlertDialog.Builder(this);
+        builder.setMessage("Delete") .setTitle("Delete Charity");
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("All Registered Charity");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -47,6 +53,7 @@ public class CharityList extends AppCompatActivity {
         mProgressDialog.setMessage("Please wait while we load all the charities...");
         mProgressDialog.setCanceledOnTouchOutside(false);
         mProgressDialog.show();
+        generateAlertBuilder();
     }
 
     @Override
@@ -79,6 +86,17 @@ public class CharityList extends AppCompatActivity {
 //                usersViewHolder.setUserImage(users_charity.getThumb_image(),getApplicationContext());
                 final String user_id = getRef(position).getKey();
                 mProgressDialog.dismiss();
+                usersViewHolder.mView.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View v) {
+                        setDeleteUid(getRef(position).getKey());
+                        AlertDialog alert = builder.create();
+                        //Setting the title manually
+                        alert.setTitle("Delete Charity");
+                        alert.show();
+                        return true;
+                    }
+                });
                 usersViewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -129,6 +147,35 @@ public class CharityList extends AppCompatActivity {
 //            Picasso.get().load(thumb_image).placeholder(R.drawable.default_image).into(userImageView);
 //        }
 
+    }
+    private void deleteCharity(String uid){
+        mUsersDatabase.child(uid).removeValue();
+    }
+
+    private void generateAlertBuilder(){
+
+        builder.setMessage("Do you really want to delete this Donor ?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        finish();
+                        deleteCharity(getDeleteUid());
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  Action for 'NO' Button
+                        dialog.cancel();
+                    }
+                });
+    }
+
+    public void setDeleteUid(String deleteUid) {
+        this.deleteUid = deleteUid;
+    }
+
+    public String getDeleteUid() {
+        return deleteUid;
     }
 }
 

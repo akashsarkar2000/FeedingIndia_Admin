@@ -1,24 +1,31 @@
 package com.example.feedingindia_admin;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -29,18 +36,19 @@ public class DonorList extends AppCompatActivity {
     private RecyclerView mUsersList;
     private DatabaseReference mUsersDatabase;
     private ProgressDialog mProgressDialog;
-
+    private AlertDialog.Builder builder;
+    private String deleteUid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donor_list);
-
+        builder = new AlertDialog.Builder(this);
         mToolbar = findViewById(R.id.donor_list_toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("All Registered Donor");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        builder.setMessage("Delete") .setTitle("Delete Donor");
         mUsersDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Donor");
 
         mUsersList = findViewById(R.id.donor_all_list);
@@ -53,7 +61,7 @@ public class DonorList extends AppCompatActivity {
         mProgressDialog.setMessage("Please wait while we load all the donors...");
         mProgressDialog.setCanceledOnTouchOutside(false);
         mProgressDialog.show();
-
+        generateAlertBuilder();
     }
 
     @Override
@@ -87,9 +95,18 @@ public class DonorList extends AppCompatActivity {
 //                usersViewHolder.setUserImage(users.getThumb_image(),getApplicationContext());
 
                 final String user_id = getRef(position).getKey();
-
                 mProgressDialog.dismiss();
-
+                usersViewHolder.mView.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View v) {
+                        setDeleteUid(getRef(position).getKey());
+                        AlertDialog alert = builder.create();
+                        //Setting the title manually
+                        alert.setTitle("Delete Donor");
+                        alert.show();
+                        return true;
+                    }
+                });
                 usersViewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -101,7 +118,9 @@ public class DonorList extends AppCompatActivity {
                     }
                 });
 
+
             }
+
         };
         mUsersList.setAdapter(firebaseRecyclerAdapter);
     }
@@ -151,5 +170,35 @@ public class DonorList extends AppCompatActivity {
 //            Picasso.get().load(thumb_image).placeholder(R.drawable.default_image).into(userImageView);
 //        }
 
+    }
+
+    private void deleteDonor(String uid){
+        mUsersDatabase.child(uid).removeValue();
+    }
+
+    private void generateAlertBuilder(){
+
+        builder.setMessage("Do you really want to delete this Donor ?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        finish();
+                        deleteDonor(getDeleteUid());
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  Action for 'NO' Button
+                        dialog.cancel();
+                    }
+                });
+    }
+
+    public void setDeleteUid(String deleteUid) {
+        this.deleteUid = deleteUid;
+    }
+
+    public String getDeleteUid() {
+        return deleteUid;
     }
 }
