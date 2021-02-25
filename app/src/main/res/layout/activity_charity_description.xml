@@ -150,5 +150,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/charity_password" />
 
+    <Button
+        android:id="@+id/edit_charity_image_button"
+        android:layout_width="156dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="212dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#E64A19"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="Edit Image"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.104"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/donor_profession_name"
+        app:layout_constraintVertical_bias="0.052" />
+
+    <Button
+        android:id="@+id/edit_charity_detail_button"
+        android:layout_width="156dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="#388E3C"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="Edit Information"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_charity_image_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/edit_charity_image_button"
+        app:layout_constraintVertical_bias="0.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

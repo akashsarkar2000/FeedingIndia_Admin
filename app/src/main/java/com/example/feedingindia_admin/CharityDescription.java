@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -46,6 +48,7 @@ public class CharityDescription extends AppCompatActivity {
     private DatabaseReference mFriendDatabase;
     private DatabaseReference mRootRef;
     private String mCurrent_state;
+    Button mEditInfo, mEditPhoto;
 
     @SuppressLint("CutPasteId")
     @Override
@@ -74,7 +77,17 @@ public class CharityDescription extends AppCompatActivity {
         mCharityReq = findViewById(R.id.charity_requirements);
         mCharityPass = findViewById(R.id.charity_password);
         mCharityStatus = findViewById(R.id.charity_status);
+        mEditInfo = findViewById(R.id.edit_charity_detail_button);
+        mEditPhoto = findViewById(R.id.edit_charity_image_button);
 
+        mEditInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // redirect to RegisterActivity
+                Intent intent = new Intent(getApplicationContext(), EditCharityAllDetails.class);
+                startActivity(intent);
+            }
+        });
 
         if (mAuth.getCurrentUser() != null) {
             mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Donor").child(mAuth.getCurrentUser().getUid());

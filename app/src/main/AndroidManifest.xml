@@ -4,9 +4,9 @@
     package="com.example.feedingindia_admin">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
-
 
     <application
         android:allowBackup="true"
@@ -15,8 +15,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FeedingIndiaAdmin">
-        <activity android:name=".AddDonor" android:parentActivityName=".AddUserSelection" />
-        <activity android:name=".AddCharity" android:parentActivityName=".AddUserSelection" />
+        <activity
+            android:name=".EditCharityAllDetails"
+            android:parentActivityName=".CharityDescription" />
+        <activity
+            android:name=".AddDonor"
+            android:parentActivityName=".AddUserSelection" />
+        <activity
+            android:name=".AddCharity"
+            android:parentActivityName=".AddUserSelection" />
         <activity
             android:name=".DonorDescription"
             android:parentActivityName=".CharityList" />

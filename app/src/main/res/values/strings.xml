@@ -16,4 +16,8 @@
     <string name="password_error">Please enter a password</string>
     <string name="error_invalid_password">Please enter a minimum password of 6 characters</string>
     <string name="charity_name" />
+    <string name="queries">Queries</string>
+    <string name="charity_list">Charity List</string>
+    <string name="donor_list">Donor List</string>
+    <string name="add_user">Add User</string>
 </resources>
