@@ -9,6 +9,10 @@ public class UsersCharity {
     public String image;
     public String charity_address;
     public String thumb_image;
+    public String requirements;
+    String phone;
+    String post_description;
+    String description;
 
     public UsersCharity() {
     }
@@ -69,5 +73,59 @@ public class UsersCharity {
         return thumb_image;
     }
 
+    public String getCharity_name() {
+        return charity_name;
+    }
 
+    public void setCharity_name(String charity_name) {
+        this.charity_name = charity_name;
+    }
+
+    public String getCharityReg() {
+        return charityReg;
+    }
+
+    public void setCharityReg(String charityReg) {
+        this.charityReg = charityReg;
+    }
+
+    public String getCharity_address() {
+        return charity_address;
+    }
+
+    public void setCharity_address(String charity_address) {
+        this.charity_address = charity_address;
+    }
+
+    public String getRequirements() {
+        return requirements;
+    }
+
+    public void setRequirements(String requirements) {
+        this.requirements = requirements;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPost_description() {
+        return post_description;
+    }
+
+    public void setPost_description(String post_description) {
+        this.post_description = post_description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
