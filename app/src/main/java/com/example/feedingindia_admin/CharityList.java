@@ -102,7 +102,7 @@ public class CharityList extends AppCompatActivity {
                     public void onClick(View view) {
 
                         Intent profileIntent = new Intent(CharityList.this, CharityDescription.class);
-                        profileIntent.putExtra("user_id",user_id);
+                        profileIntent.putExtra("user_id",getRef(position).getKey());
                         startActivity(profileIntent);
                     }
                 });

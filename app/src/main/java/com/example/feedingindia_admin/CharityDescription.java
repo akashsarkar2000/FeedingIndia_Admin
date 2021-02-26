@@ -42,6 +42,7 @@ public class CharityDescription extends AppCompatActivity {
     private ProgressDialog mProgressDialog;
     private FirebaseUser mCurrentUser;
     Button mEditInfo, mEditPhoto;
+    String key;
 
     @SuppressLint("CutPasteId")
     @Override
@@ -50,6 +51,8 @@ public class CharityDescription extends AppCompatActivity {
         setContentView(R.layout.activity_charity_description);
 
         mAuth = FirebaseAuth.getInstance();
+        Intent intent = getIntent();
+        key = intent.getStringExtra("user_id");
 
         mToolbar = findViewById(R.id.charity_description_admin);
         setSupportActionBar(mToolbar);
@@ -79,6 +82,7 @@ public class CharityDescription extends AppCompatActivity {
             public void onClick(View v) {
                 // redirect to RegisterActivity
                 Intent intent = new Intent(getApplicationContext(), EditCharityAllDetails.class);
+                intent.putExtra("user_id",key);
                 startActivity(intent);
             }
         });
