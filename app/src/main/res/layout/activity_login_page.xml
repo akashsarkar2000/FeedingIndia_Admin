@@ -70,6 +70,31 @@
             tools:ignore="RtlSymmetry" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/admin_key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/key"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:drawableStart="@drawable/custom_lock_icon"
+            android:drawablePadding="15dp"
+            android:paddingStart="8dp"
+            android:hint="@string/admin_key"
+            android:background="@drawable/custom_input"
+            android:inputType="textPassword"
+            android:drawableLeft="@drawable/custom_lock_icon"
+            android:paddingLeft="8dp"
+            tools:ignore="RtlSymmetry" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:id="@+id/forget_password"
@@ -112,6 +137,7 @@
         android:background="@drawable/register_button"
         android:text="Sign In"
         android:textColor="@color/white"
+        android:visibility="gone"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
