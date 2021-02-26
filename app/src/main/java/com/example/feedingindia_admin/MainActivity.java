@@ -21,9 +21,13 @@ import com.google.firebase.database.ServerValue;
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-//    private DatabaseReference mUserRef;
+    private DatabaseReference mUserRef;
     private Toolbar mToolbar;
     Button charityDetails, donorDetails, addUser, queries;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,63 +80,63 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        if (mAuth.getCurrentUser() != null) {
-//            mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Admin").child(mAuth.getCurrentUser().getUid());
-//        }
-
+        if(mAuth.getCurrentUser() != null){
+            mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Charity").child(mAuth.getCurrentUser().getUid());
+        }
     }
 
-//
-//    // FUNCTION FOR LOGOUT AND LOGIN
-//    private void sendToStart() {
-//        Intent startIntent = new Intent (MainActivity.this, LoginPage.class);
-//        startActivity(startIntent);
-//        finish();
-//    }
-//
-//    // LOGIN AND REDIRECT TO NEXT PAGE //
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//
-//        if (currentUser == null){
-//            sendToStart();
-//        }
-//        else {
-//            mUserRef.child("online").setValue("true");
-//        }
-//    }
-//
-//    @Override
-//    protected void onStop() {
-//        super.onStop();
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        if (currentUser != null){
-//            mUserRef.child("online").setValue(ServerValue.TIMESTAMP);
-//        }
-//    }
-//
-//    // DISPLAY OF MAIN MENU //
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        super.onCreateOptionsMenu(menu);
-//        getMenuInflater().inflate(R.menu.main_menu, menu);
-//        return true;
-//    }
-//
-//
-//    // SIGN OUT //
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        super.onOptionsItemSelected(item);
-//        if(item.getItemId() == R.id.id_main_logout){
-//            FirebaseAuth.getInstance().signOut();
-//            sendToStart();  // If Logout Successful then redirect to First page
-//        }
-//        return true;
-//    }
-//
-//
+    // FUNCTION FOR LOGOUT AND LOGIN
+    private void sendToStart() {
+        Intent startIntent = new Intent (MainActivity.this, LoginPage.class);
+        startActivity(startIntent);
+        finish();
+    }
+
+    // LOGIN AND REDIRECT TO NEXT PAGE //
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if (currentUser == null){
+            sendToStart();
+        }
+        else {
+            mUserRef.child("online").setValue("true");
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null){
+            mUserRef.child("online").setValue(ServerValue.TIMESTAMP);
+        }
+    }
+
+    // DISPLAY OF MAIN MENU //
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+
+    // SIGN OUT //
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        super.onOptionsItemSelected(item);
+        if(item.getItemId() == R.id.id_main_logout){
+            FirebaseAuth.getInstance().signOut();
+            sendToStart();  // If Logout Successful then redirect to First page
+        }
+        return true;
+    }
+
+
+
+
 }

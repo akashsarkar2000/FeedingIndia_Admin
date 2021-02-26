@@ -120,7 +120,7 @@ public class LoginPage extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     mLoginProgress.dismiss();
                     Intent mainIntent = new Intent(LoginPage.this, MainActivity.class);
-                    Toast.makeText(LoginPage.this, "Login Successful, Welcome to Charity Section", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginPage.this, "Login Successful, Welcome to Feeding India Admin Section", Toast.LENGTH_LONG).show();
                     mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);  // this line is to stick to main page after login
                     startActivity(mainIntent);
                     finish();

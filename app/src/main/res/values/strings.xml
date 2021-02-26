@@ -21,4 +21,8 @@
     <string name="donor_list">Donor List</string>
     <string name="add_user">Add User</string>
     <string name="admin_key">Admin Key</string>
+    <string name="logout">Logout</string>
+    <string name="dummy1">Dummy1</string>
+    <string name="dummy2">Dummy2</string>
+    <string name="todo">TODO</string>
 </resources>

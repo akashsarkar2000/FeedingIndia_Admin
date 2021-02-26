@@ -10,16 +10,18 @@
 
     <TextView
         android:id="@+id/Welcome"
+        android:layout_width="288dp"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="@string/welcome"
+        android:layout_gravity="center"
+        android:layout_margin="100dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Fedding India\nAdmin Section"
+        android:textColor="@color/purple_200"
         android:textSize="40sp"
         android:textStyle="bold"
-        android:textColor="@color/purple_200"
-        android:layout_margin="100dp"
-        android:transitionName="logo_text"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"/>
+        android:transitionName="logo_text" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/login_Email"
