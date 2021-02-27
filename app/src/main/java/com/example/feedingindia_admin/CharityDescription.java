@@ -31,7 +31,7 @@ public class CharityDescription extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mUserRef;
     private Toolbar mToolbar;
-    private ImageView mCharityImages, mCharityProofImages;
+    ImageView mCharityImages, mCharityProofImages;
     private TextView mCharityAddress;
     private TextView mCharityPhone;
     private TextView mCharityName;
@@ -65,7 +65,7 @@ public class CharityDescription extends AppCompatActivity {
         mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         mCharityImages = findViewById(R.id.charity_image);
-//        mCharityProofImages = findViewById(R.id.charity_proof);
+        mCharityProofImages = findViewById(R.id.charity_proof);
         mCharityName = findViewById(R.id.charity_name);
         mCharityAddress = findViewById(R.id.charity_address);
         mCharityEmail = findViewById(R.id.charity_email);
@@ -102,7 +102,7 @@ public class CharityDescription extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String image = Objects.requireNonNull(dataSnapshot.child("image").getValue()).toString();
-//                String proof_url = Objects.requireNonNull(dataSnapshot.child("proof_url").getValue()).toString();
+                String proof_url = Objects.requireNonNull(dataSnapshot.child("proof_url").getValue()).toString();
                 String charity_name = Objects.requireNonNull(dataSnapshot.child("charity_name").getValue()).toString();
                 String charity_address = Objects.requireNonNull(dataSnapshot.child("charity_address").getValue()).toString();
                 String email = Objects.requireNonNull(dataSnapshot.child("email").getValue()).toString();
@@ -112,7 +112,7 @@ public class CharityDescription extends AppCompatActivity {
 
 
                 Picasso.get().load(image).placeholder(R.drawable.default_image).into(mCharityImages);
-//                Picasso.get().load(proof_url).placeholder(R.drawable.default_image).into(mCharityProofImages);
+                Picasso.get().load(proof_url).placeholder(R.drawable.default_image).into(mCharityProofImages);
                 mCharityName.setText(charity_name);
                 mCharityAddress.setText(charity_address);
                 mCharityEmail.setText(email);

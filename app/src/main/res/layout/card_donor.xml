@@ -5,7 +5,7 @@
     android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#00796B"
+    android:background="#5C0101"
     android:padding="5dp">
 
     <androidx.cardview.widget.CardView
@@ -21,8 +21,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#BAE8E3">
+            android:layout_height="130dp"
+            android:background="#EBFFDA">
 
 
             <TextView
@@ -31,14 +31,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginLeft="4dp"
-                android:layout_marginTop="8dp"
-                android:padding="5dp"
-                android:text="Email"
-                android:textColor="#092542"
-                android:textSize="16sp"
+                android:hint="Email"
+                android:textColor="#063565"
+                android:textSize="20dp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/Emaill"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.039"
                 app:layout_constraintStart_toEndOf="@+id/Emaill"
-                app:layout_constraintTop_toBottomOf="@+id/donor_profession" />
+                app:layout_constraintTop_toBottomOf="@+id/donor_profession"
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/Name"
@@ -88,32 +90,37 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
-                android:padding="5dp"
-                android:text="Profession"
-                android:textColor="#4C0A0A"
-                android:textSize="16sp"
+                android:layout_marginBottom="0.5dp"
+                android:hint="Profession"
+                android:textColor="#870F0F"
+                android:textSize="18dp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/professionn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.011"
                 app:layout_constraintStart_toEndOf="@+id/professionn"
-                app:layout_constraintTop_toBottomOf="@+id/charity_name" />
+                app:layout_constraintTop_toTopOf="@+id/professionn"
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/charity_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginLeft="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="116dp"
                 android:layout_marginRight="116dp"
-                android:text="Text View"
-                android:textColor="#590D2B"
-                android:textSize="18sp"
+                android:hint="Text View"
+                android:textColor="#771F03"
+                android:textSize="20sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/Name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/Name"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

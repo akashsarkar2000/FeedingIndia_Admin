@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             sendToStart();
         }
         else {
-            mUserRef.child("online").setValue("true");
+//            mUserRef.child("online").setValue("true");
         }
     }
 
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null){
-            mUserRef.child("online").setValue(ServerValue.TIMESTAMP);
+//            mUserRef.child("online").setValue(ServerValue.TIMESTAMP);
         }
     }
 
