@@ -33,15 +33,16 @@ import java.util.Map;
 public class EditCharityAllDetails extends AppCompatActivity {
 
     private Toolbar mToolbar;
-    TextView mRegNum, mCharityEmail, mPassword;
-    EditText mName, mAddress, mPhoneNo, mRequirements, mDescription, mPostDetails;
+    TextView mRegNum, mCharityEmail;
+    EditText mName, mAddress, mPhoneNo, mDescription;
     Button mSaveButton;
-    private FirebaseAuth mAuth;
     private DatabaseReference mUsersDatabase;
-    private FirebaseUser mCurrentUser;
-    private ProgressDialog mProgressDialog;
     private String key;
     private Map<String,Object> map;
+    private FirebaseAuth mAuth;
+    private FirebaseUser mCurrentUser;
+    private ProgressDialog mProgressDialog;
+
 
 
     @Override
@@ -57,16 +58,16 @@ public class EditCharityAllDetails extends AppCompatActivity {
         getSupportActionBar().setTitle("Edit Charity Details");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        mUsersDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Charity").child(key);
+
 //        mAuth = FirebaseAuth.getInstance();
 //        final String user_id = getIntent().getStringExtra("user_id");
-        mUsersDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Charity").child(key);
 //        mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         //PROGRESS
         mProgressDialog = new ProgressDialog(this);
 
         mRegNum = findViewById(R.id.edit_regNum);
-        mCharityEmail = findViewById(R.id.edit_charity_email);
         mCharityEmail = findViewById(R.id.edit_charity_email);
         mName = findViewById(R.id.edit_charity_name);
         mAddress = findViewById(R.id.edit_charity_address);
@@ -93,7 +94,7 @@ public class EditCharityAllDetails extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 UsersCharity usersCharity = snapshot.getValue(UsersCharity.class);
                 try{
-                    mRegNum.setText(usersCharity.getRegNo());
+                    mRegNum.setText(usersCharity.getCharityReg());
                     mCharityEmail.setText(usersCharity.getEmail());
                     mName.setText(usersCharity.getCharity_name());
                     mAddress.setText(usersCharity.getCharity_address());
@@ -128,7 +129,7 @@ public class EditCharityAllDetails extends AppCompatActivity {
                 map.put("charityReg",s.toString());
             }
         });
-        mRegNum.addTextChangedListener(new TextWatcher() {
+        mCharityEmail.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 

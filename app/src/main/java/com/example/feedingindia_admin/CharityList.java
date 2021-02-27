@@ -79,8 +79,8 @@ public class CharityList extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull UsersViewHolder usersViewHolder, int position, @NonNull UsersCharity users_charity) {
 
-                usersViewHolder.setName(users_charity.getName());
-                usersViewHolder.setReg(users_charity.getReg());
+                usersViewHolder.setName(users_charity.getCharity_name());
+                usersViewHolder.setReg(users_charity.getCharityReg());
                 usersViewHolder.setEmail(users_charity.getEmail());
 //                usersViewHolder.setEmail(users_charity.getEmail());
 //                usersViewHolder.setUserImage(users_charity.getThumb_image(),getApplicationContext());
