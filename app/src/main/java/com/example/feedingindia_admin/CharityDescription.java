@@ -59,7 +59,6 @@ public class CharityDescription extends AppCompatActivity {
         getSupportActionBar().setTitle("Charity Details");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         final String user_id = getIntent().getStringExtra("user_id");
         mUsersDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Charity").child(user_id);
         mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();

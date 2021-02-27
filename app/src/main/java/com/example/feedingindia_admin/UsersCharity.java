@@ -24,18 +24,14 @@ public class UsersCharity {
         this.image = image;
         this.charity_address = status;
         this.thumb_image = thumb_image;
+        this.description = description;
     }
 
     public void setName(String name) {
         this.charity_name = name;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    public String getEmail() {
-        return email;
-    }
+
 
     public void setReg(String charityReg) {
         this.charity_name = charityReg;
@@ -127,5 +123,21 @@ public class UsersCharity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getRegNo() {
+        return charityReg;
+    }
+
+    public void setRegNo(String charityReg) {
+        this.charityReg = charityReg;
+    }
+
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getEmail() {
+        return email;
     }
 }

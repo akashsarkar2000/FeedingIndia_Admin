@@ -61,41 +61,17 @@ public class EditCharityAllDetails extends AppCompatActivity {
 //        final String user_id = getIntent().getStringExtra("user_id");
         mUsersDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Charity").child(key);
 //        mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
-//
 
         //PROGRESS
         mProgressDialog = new ProgressDialog(this);
 
-//        String charityReg = getIntent().getStringExtra("charityReg");
-//        String charity_address = getIntent().getStringExtra("charity_address");
-//        String charity_name = getIntent().getStringExtra("charity_name");
-//        String description = getIntent().getStringExtra("description");
-//        String email = getIntent().getStringExtra("email");
-//        String password = getIntent().getStringExtra("password");
-//        String phone = getIntent().getStringExtra("phone");
-//        String post_description = getIntent().getStringExtra("post_description");
-//        String requirements = getIntent().getStringExtra("requirements");
-
         mRegNum = findViewById(R.id.edit_regNum);
         mCharityEmail = findViewById(R.id.edit_charity_email);
-        mPassword = findViewById(R.id.edit_charity_password);
+        mCharityEmail = findViewById(R.id.edit_charity_email);
         mName = findViewById(R.id.edit_charity_name);
         mAddress = findViewById(R.id.edit_charity_address);
         mPhoneNo = findViewById(R.id.edit_charity_phone);
-        mRequirements = findViewById(R.id.edit_charity_requirements);
         mDescription = findViewById(R.id.edit_charity_description);
-        mPostDetails = findViewById(R.id.edit_charity_post_details);
-//
-//
-//        mRegNum.setText(charityReg);
-//        mCharityEmail.setText(email);
-//        mPassword.setText(password);
-//        mName.setText(charity_name);
-//        mAddress.setText(charity_address);
-//        mPhoneNo.setText(phone);
-//        mRequirements.setText(requirements);
-//        mDescription.setText(description);
-//        mPostDetails.setText(post_description);
 
         listeners();
         getData();
@@ -117,12 +93,12 @@ public class EditCharityAllDetails extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 UsersCharity usersCharity = snapshot.getValue(UsersCharity.class);
                 try{
+                    mRegNum.setText(usersCharity.getRegNo());
+                    mCharityEmail.setText(usersCharity.getEmail());
                     mName.setText(usersCharity.getCharity_name());
                     mAddress.setText(usersCharity.getCharity_address());
                     mPhoneNo.setText(usersCharity.getPhone());
-                    mRequirements.setText(usersCharity.getRequirements());
                     mDescription.setText(usersCharity.getDescription());
-                    mPostDetails.setText(usersCharity.getPost_description());
                 }catch (Exception e){
                     e.printStackTrace();
                 }
@@ -136,6 +112,38 @@ public class EditCharityAllDetails extends AppCompatActivity {
     }
 
     private void listeners(){
+        mRegNum.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                map.put("charityReg",s.toString());
+            }
+        });
+        mRegNum.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                map.put("email",s.toString());
+            }
+        });
         mName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -184,22 +192,6 @@ public class EditCharityAllDetails extends AppCompatActivity {
                 map.put("phone",s.toString());
             }
         });
-        mRequirements.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                map.put("requirements",s.toString());
-            }
-        });
         mDescription.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -214,22 +206,6 @@ public class EditCharityAllDetails extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 map.put("description",s.toString());
-            }
-        });
-        mPostDetails.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                map.put("post_description",s.toString());
             }
         });
         mSaveButton.setOnClickListener(new View.OnClickListener() {

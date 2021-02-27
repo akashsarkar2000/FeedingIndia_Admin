@@ -17,7 +17,7 @@
         android:theme="@style/Theme.FeedingIndiaAdmin">
         <activity
             android:name=".EditCharityAllDetails"
-            android:parentActivityName=".CharityDescription" />
+            android:parentActivityName=".CharityList" />
         <activity
             android:name=".AddDonor"
             android:parentActivityName=".AddUserSelection" />
