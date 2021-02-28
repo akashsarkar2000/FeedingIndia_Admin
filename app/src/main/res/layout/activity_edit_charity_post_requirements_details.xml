@@ -8,7 +8,7 @@
     tools:context=".EditCharityPostRequirementsDetails">
 
     <include
-        android:id="@+id/charity_list_toolbar"
+        android:id="@+id/charity_edit_post_requirements_toolbar"
         layout="@layout/app_bar_layout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/donor_info_edit_save_btn"
+        android:id="@+id/charity_edit_post_requirements_save_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -46,8 +46,10 @@
         android:hint="GH34YU-455DJ"
         android:inputType="textPersonName"
         android:padding="10dp"
+        android:textColor="#000000"
         android:textColorHint="#000000"
         android:textSize="10sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -172,6 +174,7 @@
         android:layout_marginStart="86dp"
         android:layout_marginLeft="86dp"
         android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
         android:layout_marginBottom="596dp"
         android:autofillHints=""
         android:ems="10"
@@ -180,15 +183,16 @@
         android:hint="username@domain.xyz"
         android:inputType="textEmailAddress"
         android:padding="10dp"
+        android:textColor="#000000"
         android:textColorHint="#000000"
         android:textSize="10sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/edit_charityName3"
         app:layout_constraintTop_toBottomOf="@+id/donor_account_setting_appBar"
-        tools:ignore="TextFields,UnknownId"
-        android:layout_marginRight="15dp" />
+        tools:ignore="TextFields,UnknownId" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,7 +34,7 @@ public class EditCharityAllDetails extends AppCompatActivity {
 
     private Toolbar mToolbar;
     TextView mRegNum, mCharityEmail;
-    EditText mName, mAddress, mPhoneNo, mDescription;
+    EditText mName, mCharityImageUrl, mAddress, mPhoneNo, mDescription;
     Button mSaveButton;
     private DatabaseReference mUsersDatabase;
     private String key;
@@ -70,6 +70,7 @@ public class EditCharityAllDetails extends AppCompatActivity {
         mRegNum = findViewById(R.id.edit_regNum);
         mCharityEmail = findViewById(R.id.edit_charity_email);
         mName = findViewById(R.id.edit_charity_name);
+        mCharityImageUrl = findViewById(R.id.edit_charity_image_url);
         mAddress = findViewById(R.id.edit_charity_address);
         mPhoneNo = findViewById(R.id.edit_charity_phone);
         mDescription = findViewById(R.id.edit_charity_description);
@@ -97,8 +98,9 @@ public class EditCharityAllDetails extends AppCompatActivity {
                     mRegNum.setText(usersCharity.getCharityReg());
                     mCharityEmail.setText(usersCharity.getEmail());
                     mName.setText(usersCharity.getCharity_name());
-                    mAddress.setText(usersCharity.getCharity_address());
                     mPhoneNo.setText(usersCharity.getPhone());
+                    mCharityImageUrl.setText(usersCharity.getImage());
+                    mAddress.setText(usersCharity.getCharity_address());
                     mDescription.setText(usersCharity.getDescription());
                 }catch (Exception e){
                     e.printStackTrace();
@@ -159,6 +161,22 @@ public class EditCharityAllDetails extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 map.put("charity_name",s.toString());
+            }
+        });
+        mCharityImageUrl.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                map.put("image",s.toString());
             }
         });
         mAddress.addTextChangedListener(new TextWatcher() {

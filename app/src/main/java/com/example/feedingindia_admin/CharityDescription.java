@@ -51,6 +51,8 @@ public class CharityDescription extends AppCompatActivity {
         setContentView(R.layout.activity_charity_description);
 
         mAuth = FirebaseAuth.getInstance();
+
+
         Intent intent = getIntent();
         key = intent.getStringExtra("user_id");
 
@@ -72,8 +74,12 @@ public class CharityDescription extends AppCompatActivity {
         mCharityReg = findViewById(R.id.charity_reg);
         mCharityDescription = findViewById(R.id.charity_description);
         mEditInfo = findViewById(R.id.edit_charity_detail_button);
-        mEditPhoto = findViewById(R.id.edit_charity_image_button);
         mPostRequirements = findViewById(R.id.edit_charity_post_requirements__button);
+
+
+        if (mAuth.getCurrentUser() != null) {
+            mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Donor").child(mAuth.getCurrentUser().getUid());
+        }
 
         mPostRequirements.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,9 +101,6 @@ public class CharityDescription extends AppCompatActivity {
             }
         });
 
-        if (mAuth.getCurrentUser() != null) {
-            mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Donor").child(mAuth.getCurrentUser().getUid());
-        }
 
         mProgressDialog = new ProgressDialog(CharityDescription.this);
         mProgressDialog.setTitle("Loading Charity data");

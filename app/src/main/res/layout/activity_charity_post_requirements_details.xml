@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="?android:attr/listDivider"
-            app:layout_constraintBottom_toTopOf="@+id/charity_description"
+            app:layout_constraintBottom_toTopOf="@+id/charity_requirements"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +50,7 @@
             app:layout_constraintVertical_bias="0.045" />
 
         <TextView
-            android:id="@+id/charity_description"
+            android:id="@+id/charity_requirements"
             android:layout_width="340dp"
             android:layout_height="350dp"
             android:layout_marginTop="4dp"
@@ -103,11 +103,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/charity_description" />
+            app:layout_constraintTop_toBottomOf="@+id/charity_requirements" />
 
 
         <ImageView
-            android:id="@+id/post_image2"
+            android:id="@+id/charity_post_image"
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:layout_marginStart="133dp"
@@ -134,11 +134,11 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/post_image2"
+            app:layout_constraintTop_toBottomOf="@+id/charity_post_image"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/charity_description2"
+            android:id="@+id/charity_post_description"
             android:layout_width="340dp"
             android:layout_height="200dp"
             android:scrollbars="vertical"
@@ -162,7 +162,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/charity_description2"
+            app:layout_constraintTop_toBottomOf="@+id/charity_post_description"
             app:layout_constraintVertical_bias="0.106" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,14 +29,15 @@
             android:layout_height="254dp"
             android:layout_marginStart="133dp"
             android:layout_marginLeft="133dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="150dp"
             android:layout_marginRight="150dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.468"
+            app:layout_constraintHorizontal_bias="0.466"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/charity_name"
-            app:layout_constraintVertical_bias="0.009"
+            app:layout_constraintVertical_bias="0.001"
             tools:srcCompat="@drawable/default_image" />
 
         <ImageView
@@ -75,24 +76,24 @@
             app:layout_constraintVertical_bias="0.004" />
 
         <Button
-            android:id="@+id/edit_charity_image_button"
-            android:layout_width="150dp"
+            android:id="@+id/edit_charity_detail_button"
+            android:layout_width="250dp"
             android:layout_height="54dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="68dp"
-            android:backgroundTint="#F57C00"
+            android:backgroundTint="#D66C00"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:text="Edit Image"
+            android:text="Edit Details"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.037"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/charity_description"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/edit_charity_post_requirements__button"
@@ -101,7 +102,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="4dp"
-            android:backgroundTint="#C2185B"
+            android:backgroundTint="#006A75"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:text="post and requirements"
@@ -112,26 +113,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_charity_image_button"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <Button
-            android:id="@+id/edit_charity_detail_button"
-            android:layout_width="150dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:backgroundTint="#7B1FA2"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="Edit Details"
-            android:textColor="@color/common_google_signin_btn_text_dark_default"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/edit_charity_image_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.962"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/edit_charity_image_button"
+            app:layout_constraintTop_toBottomOf="@+id/edit_charity_detail_button"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView

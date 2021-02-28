@@ -8,21 +8,12 @@ public class UsersCharity {
     public String charity_address;
     public String thumb_image;
     public String requirements;
+    private String post_image;
     String phone;
     String post_description;
     String description;
 
     public UsersCharity() {
-    }
-
-    public UsersCharity(String name, String email, String charityReg, String image, String status, String thumb_image, String description) {
-        this.charity_name = name;
-        this.email = email;
-        this.charityReg = charityReg;
-        this.image = image;
-        this.charity_address = status;
-        this.thumb_image = thumb_image;
-        this.description = description;
     }
 
     public String getCharity_name() {
@@ -78,6 +69,22 @@ public class UsersCharity {
     }
     public void setPost_description(String post_description) {
         this.post_description = post_description;
+    }
+
+
+    public String getPost_image() {
+        return post_image;
+    }
+    public void setPost_image(String post_image) {
+        this.post_image = post_image;
+    }
+
+
+    public String getImage() {
+        return image;
+    }
+    public void setImage(String image) {
+        this.image = image;
     }
 
 
