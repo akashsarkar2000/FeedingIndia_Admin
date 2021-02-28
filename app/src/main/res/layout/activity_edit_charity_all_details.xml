@@ -8,7 +8,7 @@
     tools:context=".EditCharityAllDetails">
 
     <include
-        android:id="@+id/charity_list_toolbar"
+        android:id="@+id/charity_all_details_toolbar"
         layout="@layout/app_bar_layout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

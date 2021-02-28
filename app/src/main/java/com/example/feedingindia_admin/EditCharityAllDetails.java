@@ -53,7 +53,7 @@ public class EditCharityAllDetails extends AppCompatActivity {
         map = new HashMap<String,Object>();
         key = intent.getStringExtra("user_id");
         mSaveButton = findViewById(R.id.donor_info_edit_save_btn);
-        mToolbar = findViewById(R.id.charity_list_toolbar);
+        mToolbar = findViewById(R.id.charity_all_details_toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Edit Charity Details");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

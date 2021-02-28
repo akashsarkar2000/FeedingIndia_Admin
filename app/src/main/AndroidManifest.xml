@@ -15,9 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FeedingIndiaAdmin">
-        <activity android:name=".CharityPostRequirementsDetails"
+        <activity android:name=".EditCharityPostRequirementsDetails"
+            android:parentActivityName=".CharityList"/>
+        <activity
+            android:name=".CharityPostRequirementsDetails"
             android:parentActivityName=".CharityList" />
-
         <activity
             android:name=".EditCharityAllDetails"
             android:parentActivityName=".CharityList" />
@@ -50,7 +52,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginPage"></activity>
+        <activity android:name=".LoginPage" />
     </application>
 
 </manifest>

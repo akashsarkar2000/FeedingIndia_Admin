@@ -85,12 +85,12 @@ public class CharityDescription extends AppCompatActivity {
             }
         });
 
-
         mEditInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // redirect to RegisterActivity
                 Intent intent = new Intent(getApplicationContext(), EditCharityAllDetails.class);
+                intent.putExtra("user_id",key);
                 startActivity(intent);
             }
         });
