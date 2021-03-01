@@ -6,7 +6,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,7 +32,7 @@ public class DonorDescription extends AppCompatActivity {
     private RecyclerView mUsersList;
     private ImageView mDonorImages;
     private TextView mDonorName, mDonorAddress, mDonorEmail, mDonorPhone, mDonorProfession, mDonorPass, mDonorStatus;
-    private Button mPostButton, mContactButton, mFoodButton, mMoneyButton;
+    private Button mEditInfo;
     private DatabaseReference mUsersDatabase;
     private DatabaseReference mFriendReqDatabase;
     private ProgressDialog mProgressDialog;
@@ -38,6 +40,7 @@ public class DonorDescription extends AppCompatActivity {
     private DatabaseReference mFriendDatabase;
     private DatabaseReference mRootRef;
     private String mCurrent_state;
+    String key;
 
 
     @Override
@@ -47,13 +50,13 @@ public class DonorDescription extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        Intent intent = getIntent();
+        key = intent.getStringExtra("user_id");
+
         mToolbar = findViewById(R.id.donor_description_admin);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Donor Description");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
-
 
         final String user_id = getIntent().getStringExtra("user_id");
         mUsersDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Donor").child(user_id);
@@ -65,14 +68,23 @@ public class DonorDescription extends AppCompatActivity {
         mDonorEmail = findViewById(R.id.donor_description_email);
         mDonorPhone = findViewById(R.id.donor_description_phone);
         mDonorProfession = findViewById(R.id.donor_description_profession);
-        mDonorPass = findViewById(R.id.donor_description_password);
         mDonorStatus = findViewById(R.id.donor_description_status);
+        mEditInfo = findViewById(R.id.edit_donor_detail_button);
 
 
+        if (mAuth.getCurrentUser() != null) {
+            mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Donor").child(mAuth.getCurrentUser().getUid());
+        }
 
-//        if (mAuth.getCurrentUser() != null) {
-//            mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Donor").child(mAuth.getCurrentUser().getUid());
-//        }
+        mEditInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // redirect to RegisterActivity
+                Intent intent = new Intent(getApplicationContext(), EditDonorAllDetails.class);
+                intent.putExtra("user_id",key);
+                startActivity(intent);
+            }
+        });
 
         mProgressDialog = new ProgressDialog(DonorDescription.this);
         mProgressDialog.setTitle("Loading Donor data");
@@ -89,18 +101,19 @@ public class DonorDescription extends AppCompatActivity {
                 String email = Objects.requireNonNull(dataSnapshot.child("email").getValue()).toString();
                 String phone = Objects.requireNonNull(dataSnapshot.child("phone").getValue()).toString();
                 String profession = Objects.requireNonNull(dataSnapshot.child("profession").getValue()).toString();
-                String pass = Objects.requireNonNull(dataSnapshot.child("password").getValue()).toString();
                 String image = Objects.requireNonNull(dataSnapshot.child("image").getValue()).toString();
                 String status = Objects.requireNonNull(dataSnapshot.child("status").getValue()).toString();
+                String address = Objects.requireNonNull(dataSnapshot.child("address").getValue()).toString();
 
+
+                Picasso.get().load(image).placeholder(R.drawable.default_image).into(mDonorImages);
                 mDonorName.setText(donor_name);
                 mDonorProfession.setText(profession);
                 mDonorEmail.setText(email);
                 mDonorPhone.setText(phone);
-                mDonorPass.setText(pass);
                 mDonorStatus.setText(status);
+                mDonorAddress.setText(address);
 
-                Picasso.get().load(image).placeholder(R.drawable.default_image).into(mDonorImages);
                 mProgressDialog.dismiss();
 
 

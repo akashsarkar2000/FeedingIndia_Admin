@@ -156,23 +156,24 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3"
-            app:layout_constraintVertical_bias="0.014" />
+            app:layout_constraintVertical_bias="0.082" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:text="Description:"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
-            app:layout_constraintVertical_bias="0.135" />
+            app:layout_constraintVertical_bias="0.066" />
 
         <TextView
             android:id="@+id/textView5"
@@ -238,8 +239,8 @@
 
         <TextView
             android:id="@+id/charity_address"
-            android:layout_width="341dp"
-            android:layout_height="65dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginBottom="50dp"
             android:gravity="center"
             android:scrollbars="vertical"
@@ -248,21 +249,23 @@
             android:textColorLink="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView2"
-            app:layout_constraintVertical_bias="0.034" />
+            app:layout_constraintVertical_bias="0.066" />
 
         <TextView
             android:id="@+id/charity_description"
-            android:layout_width="340dp"
-            android:layout_height="400dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
             android:scrollbars="vertical"
             android:textColor="#FFFFFF"
             android:textColorHint="#000000"
             android:textColorLink="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4"
             app:layout_constraintVertical_bias="0.0" />
@@ -302,7 +305,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/charity_address"
-            app:layout_constraintVertical_bias="0.017" />
+            app:layout_constraintVertical_bias="0.36" />
 
         <View
             android:id="@+id/divider2"

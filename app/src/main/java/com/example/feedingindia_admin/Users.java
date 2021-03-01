@@ -7,17 +7,11 @@ public class Users {
     public String email;
     public String profession;
     public String thumb_image;
+    public String phone;
+    public String address;
+    public String status;
 
     public Users() {
-    }
-
-
-    public Users(String name, String email, String image, String profession, String thumb_image) {
-        this.donor_name = name;
-        this.email = email;
-        this.image = image;
-        this.profession = profession;
-        this.thumb_image = thumb_image;
     }
 
     public void setName(String name) {
@@ -55,9 +49,24 @@ public class Users {
         return thumb_image;
     }
 
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+    public String getPhone() {
+        return phone;
+    }
 
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    public String getAddress() {
+        return address;
+    }
 
-
-
-
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    public String getStatus() {
+        return status;
+    }
 }

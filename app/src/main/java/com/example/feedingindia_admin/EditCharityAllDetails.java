@@ -49,10 +49,12 @@ public class EditCharityAllDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_charity_all_details);
+
         Intent intent = getIntent();
         map = new HashMap<String,Object>();
         key = intent.getStringExtra("user_id");
-        mSaveButton = findViewById(R.id.donor_info_edit_save_btn);
+
+        mSaveButton = findViewById(R.id.charity_info_edit_save_btn);
         mToolbar = findViewById(R.id.charity_all_details_toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Edit Charity Details");

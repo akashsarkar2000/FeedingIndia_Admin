@@ -78,7 +78,7 @@ public class CharityDescription extends AppCompatActivity {
 
 
         if (mAuth.getCurrentUser() != null) {
-            mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Donor").child(mAuth.getCurrentUser().getUid());
+            mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Charity").child(mAuth.getCurrentUser().getUid());
         }
 
         mPostRequirements.setOnClickListener(new View.OnClickListener() {
