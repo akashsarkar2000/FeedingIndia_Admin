@@ -15,32 +15,41 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FeedingIndiaAdmin">
-        <activity android:name=".EditDonorAllDetails"></activity>
+        <activity android:name=".EditDonorAllDetails" />
         <activity
             android:name=".EditCharityPostRequirementsDetails"
             android:parentActivityName=".CharityList" />
+
         <activity
             android:name=".CharityPostRequirementsDetails"
             android:parentActivityName=".CharityList" />
+
         <activity
             android:name=".EditCharityAllDetails"
             android:parentActivityName=".CharityList" />
+
         <activity
             android:name=".AddDonor"
             android:parentActivityName=".AddUserSelection" />
+
         <activity
             android:name=".AddCharity"
-            android:parentActivityName=".AddUserSelection" />
+            android:parentActivityName=".AddUserSelection"
+            tools:ignore="MissingClass" />
+
         <activity
             android:name=".DonorDescription"
             android:parentActivityName=".CharityList" />
+
         <activity
             android:name=".AddUserSelection"
             android:parentActivityName=".MainActivity" />
+
         <activity
             android:name=".CharityDescription"
             android:parentActivityName=".CharityList" />
         <activity android:name=".RegisterPage" />
+
         <activity
             android:name=".CharityList"
             android:parentActivityName=".MainActivity" />
