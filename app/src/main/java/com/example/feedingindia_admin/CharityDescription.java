@@ -1,15 +1,13 @@
-package com.example.feedingindia_admin;
+    package com.example.feedingindia_admin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -50,6 +48,7 @@ public class CharityDescription extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_charity_description);
 
+
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -81,6 +80,8 @@ public class CharityDescription extends AppCompatActivity {
             mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Charity").child(mAuth.getCurrentUser().getUid());
         }
 
+
+
         mPostRequirements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +91,8 @@ public class CharityDescription extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
 
         mEditInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,11 +105,13 @@ public class CharityDescription extends AppCompatActivity {
         });
 
 
+
         mProgressDialog = new ProgressDialog(CharityDescription.this);
         mProgressDialog.setTitle("Loading Charity data");
         mProgressDialog.setMessage("Please wait while we load the charity data.");
         mProgressDialog.setCanceledOnTouchOutside(false);
         mProgressDialog.show();
+
 
 
         mUsersDatabase.addValueEventListener(new ValueEventListener() {
@@ -121,7 +126,6 @@ public class CharityDescription extends AppCompatActivity {
                 String charity_reg = Objects.requireNonNull(dataSnapshot.child("charityReg").getValue()).toString();
                 String description = Objects.requireNonNull(dataSnapshot.child("description").getValue()).toString();
 
-
                 Picasso.get().load(image).placeholder(R.drawable.default_image).into(mCharityImages);
                 Picasso.get().load(proof_url).placeholder(R.drawable.default_image).into(mCharityProofImages);
                 mCharityName.setText(charity_name);
@@ -131,11 +135,7 @@ public class CharityDescription extends AppCompatActivity {
                 mCharityReg.setText(charity_reg);
                 mCharityDescription.setText(description);
 
-//                mCharityPass.setText(pass);
                 mProgressDialog.dismiss();
-
-
-
             }
 
             @Override

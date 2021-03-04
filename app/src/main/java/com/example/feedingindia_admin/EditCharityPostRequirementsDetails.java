@@ -79,7 +79,7 @@ public class EditCharityPostRequirementsDetails extends AppCompatActivity {
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(EditCharityPostRequirementsDetails.this, "Data Updated Successfully", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(EditCharityPostRequirementsDetails.this,CharityDescription.class));
+                startActivity(new Intent(EditCharityPostRequirementsDetails.this,CharityPostRequirementsDetails.class));
             }
         });
     }
