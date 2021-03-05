@@ -57,11 +57,12 @@ public class AddCharity extends AppCompatActivity {
         setContentView(R.layout.activity_add_charity);
         mProgressDialog = new ProgressDialog(this);
 
-//        setSupportActionBar(mToolbar);
-//        mToolbar = findViewById(R.id.add_charity_toolbar);
-//        getSupportActionBar().setTitle("Add Charity");
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//
+
+        mToolbar = findViewById(R.id.add_charity_toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle("Add Charity");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         charityName = findViewById(R.id.add_charity_name);
         charityEmail = findViewById(R.id.add_charity_email);
@@ -71,7 +72,9 @@ public class AddCharity extends AppCompatActivity {
         proof = findViewById(R.id.proof);
         mImageStorage = FirebaseStorage.getInstance().getReference();
 
+
         charityRegister = findViewById(R.id.add_charity_button);
+
 
         nameError = findViewById(R.id.nameError);
         emailError = findViewById(R.id.emailError);
@@ -82,7 +85,6 @@ public class AddCharity extends AppCompatActivity {
 
         // FIREBASE AUTH
         mAuth = FirebaseAuth.getInstance();
-
         charityRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,6 +145,7 @@ public class AddCharity extends AppCompatActivity {
                     userMap.put("post_image","default");
                     userMap.put("image","default");
                     userMap.put("thumb_image","default");
+                    userMap.put("proof_url",getProof_url());
                     mDatabase.setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                             public void onComplete(@NonNull Task<Void> task) {

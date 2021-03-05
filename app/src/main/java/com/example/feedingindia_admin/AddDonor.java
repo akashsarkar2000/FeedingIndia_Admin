@@ -44,7 +44,7 @@ public class AddDonor extends AppCompatActivity {
         setContentView(R.layout.activity_add_donor);
         mRegProgress = new ProgressDialog(this);
 
-        mToolbar = findViewById(R.id.add_charity_toolbar);
+        mToolbar = findViewById(R.id.add_donor_toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Add Donor");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
