@@ -39,7 +39,7 @@ public class CharityDescription extends AppCompatActivity {
     private DatabaseReference mUsersDatabase;
     private ProgressDialog mProgressDialog;
     private FirebaseUser mCurrentUser;
-    Button mEditInfo, mEditPhoto, mPostRequirements;
+    Button mEditInfo, mCharityComments, mPostRequirements;
     String key;
 
     @SuppressLint("CutPasteId")
@@ -74,12 +74,23 @@ public class CharityDescription extends AppCompatActivity {
         mCharityDescription = findViewById(R.id.charity_description);
         mEditInfo = findViewById(R.id.edit_charity_detail_button);
         mPostRequirements = findViewById(R.id.edit_charity_post_requirements__button);
+        mCharityComments = findViewById(R.id.edit_charity_comments__button);
 
 
         if (mAuth.getCurrentUser() != null) {
             mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Charity").child(mAuth.getCurrentUser().getUid());
         }
 
+
+        mCharityComments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // redirect to RegisterActivity
+                Intent intent = new Intent(getApplicationContext(), CharityPostRequirementsDetails.class);
+                intent.putExtra("user_id",key);
+                startActivity(intent);
+            }
+        });
 
 
         mPostRequirements.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +102,6 @@ public class CharityDescription extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
 
         mEditInfo.setOnClickListener(new View.OnClickListener() {

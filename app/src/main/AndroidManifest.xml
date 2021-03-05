@@ -15,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FeedingIndiaAdmin">
-        <activity android:name=".EditDonorAllDetails" />
+        <activity android:name=".EditDonorAllDetails"
+            android:parentActivityName=".DonorList" />
+
         <activity
             android:name=".EditCharityPostRequirementsDetails"
             android:parentActivityName=".CharityList" />

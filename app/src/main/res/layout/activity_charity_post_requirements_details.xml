@@ -45,18 +45,23 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.454"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/charity_post_requirements_details_admin"
-            app:layout_constraintVertical_bias="0.045" />
+            app:layout_constraintVertical_bias="0.059" />
 
         <TextView
             android:id="@+id/charity_requirements"
-            android:layout_width="340dp"
-            android:layout_height="350dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:hint="Charity Requirements"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
             android:scrollbars="vertical"
             android:textColor="#FFFFFF"
-            android:textColorHint="#000000"
+            android:textColorHint="#FFFFFF"
             android:textColorLink="#000000"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -106,6 +111,17 @@
             app:layout_constraintTop_toBottomOf="@+id/charity_requirements" />
 
 
+        <View
+            android:id="@+id/divider9"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/charity_post_description" />
+
         <ImageView
             android:id="@+id/charity_post_image"
             android:layout_width="300dp"
@@ -117,7 +133,7 @@
             android:layout_marginRight="150dp"
             app:layout_constraintBottom_toTopOf="@id/textView4"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.448"
+            app:layout_constraintHorizontal_bias="0.453"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView8"
             app:layout_constraintVertical_bias="0.0"
@@ -139,11 +155,15 @@
 
         <TextView
             android:id="@+id/charity_post_description"
-            android:layout_width="340dp"
-            android:layout_height="200dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Description4"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
             android:scrollbars="vertical"
             android:textColor="#FFFFFF"
-            android:textColorHint="#000000"
+            android:textColorHint="#FFFFFF"
             android:textColorLink="#000000"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -156,14 +176,13 @@
             android:id="@+id/edit_post_requirements_button"
             android:layout_width="230dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:text="Edit Information"
             app:backgroundTint="#00796B"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/charity_post_description"
-            app:layout_constraintVertical_bias="0.106" />
+            app:layout_constraintTop_toBottomOf="@+id/divider9"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
