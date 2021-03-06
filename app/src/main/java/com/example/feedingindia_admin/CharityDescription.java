@@ -86,7 +86,7 @@ public class CharityDescription extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // redirect to RegisterActivity
-                Intent intent = new Intent(getApplicationContext(), CharityPostRequirementsDetails.class);
+                Intent intent = new Intent(getApplicationContext(), CharityAllCommentsByDonor .class);
                 intent.putExtra("user_id",key);
                 startActivity(intent);
             }
