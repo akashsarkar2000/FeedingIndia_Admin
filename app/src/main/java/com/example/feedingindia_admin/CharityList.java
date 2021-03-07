@@ -82,9 +82,8 @@ public class CharityList extends AppCompatActivity {
                 usersViewHolder.setName(users_charity.getCharity_name());
                 usersViewHolder.setReg(users_charity.getCharityReg());
                 usersViewHolder.setEmail(users_charity.getEmail());
-//                usersViewHolder.setEmail(users_charity.getEmail());
-//                usersViewHolder.setUserImage(users_charity.getThumb_image(),getApplicationContext());
                 final String user_id = getRef(position).getKey();
+
                 mProgressDialog.dismiss();
                 usersViewHolder.mView.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
