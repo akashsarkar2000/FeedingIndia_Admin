@@ -86,10 +86,8 @@ public class CharityAllCommentsByDonor extends AppCompatActivity {
                     recyclerView.setAdapter(chatAdapter);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
     }

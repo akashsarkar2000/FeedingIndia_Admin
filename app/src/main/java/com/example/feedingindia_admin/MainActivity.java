@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -47,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         charityDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // redirect to RegisterActivity
                 Intent intent = new Intent(getApplicationContext(), CharityList.class);
                 startActivity(intent);
             }
@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         donorDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // redirect to RegisterActivity
                 Intent intent = new Intent(getApplicationContext(), DonorList.class);
                 startActivity(intent);
             }
@@ -65,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
         addUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // redirect to RegisterActivity
                 Intent intent = new Intent(getApplicationContext(), AddUserSelection.class);
                 startActivity(intent);
             }
@@ -74,15 +72,19 @@ public class MainActivity extends AppCompatActivity {
         queries.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // redirect to RegisterActivity
-                Intent intent = new Intent(getApplicationContext(), AddUserSelection.class);
-                startActivity(intent);
+                gotoUrl("https://www.gmail.com/");
             }
         });
 
         if(mAuth.getCurrentUser() != null){
             mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Charity").child(mAuth.getCurrentUser().getUid());
         }
+    }
+
+    private void gotoUrl(String s) {
+
+        Uri url = Uri.parse(s);
+        startActivity(new Intent(Intent.ACTION_VIEW,url));
     }
 
     // FUNCTION FOR LOGOUT AND LOGIN

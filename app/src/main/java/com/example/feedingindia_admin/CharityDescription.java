@@ -51,7 +51,6 @@ public class CharityDescription extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-
         Intent intent = getIntent();
         key = intent.getStringExtra("user_id");
 
