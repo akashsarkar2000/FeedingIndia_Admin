@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 gotoUrl("https://www.gmail.com/");
             }
+
         });
 
         if(mAuth.getCurrentUser() != null){

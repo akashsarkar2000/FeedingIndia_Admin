@@ -36,7 +36,7 @@ public class CharityPostRequirementsDetails extends AppCompatActivity {
     private DatabaseReference mUsersDatabase;
     private ProgressDialog mProgressDialog;
     private FirebaseUser mCurrentUser;
-    TextView mRequirements, mPostDescription;
+    TextView mRequirements, mPostDescription, mCharityName;
     ImageView mPostImage;
     String key;
 
@@ -58,6 +58,13 @@ public class CharityPostRequirementsDetails extends AppCompatActivity {
         mUsersDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Charity").child(key);
         mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
 
+        mProgressDialog = new ProgressDialog(CharityPostRequirementsDetails.this);
+        mProgressDialog.setTitle("Loading All Details");
+        mProgressDialog.setMessage("Please wait while we load all the details...");
+        mProgressDialog.setCanceledOnTouchOutside(false);
+        mProgressDialog.show();
+
+        mCharityName = findViewById(R.id.charity_name_post_side);
         mRequirements = findViewById(R.id.charity_requirements);
         mPostImage = findViewById(R.id.charity_post_image);
         mPostDescription = findViewById(R.id.charity_post_description);
@@ -90,13 +97,16 @@ public class CharityPostRequirementsDetails extends AppCompatActivity {
                 if(usersCharityData != null){
                     Log.i("Data",usersCharityData.getRequirements());
                     mRequirements.setText(usersCharityData.getRequirements());
+                    Log.i("Data",usersCharityData.getCharity_name());
+                    mCharityName.setText(usersCharityData.getCharity_name());
                     Log.i("Data",usersCharityData.getPost_description());
                     mPostDescription.setText(usersCharityData.getPost_description());
                     Log.i("Data",usersCharityData.getPost_image());
                     Picasso.get().load(usersCharityData.getPost_image()).placeholder(R.drawable.default_image).into(mPostImage);
-
+                    mProgressDialog.dismiss();
                 }else {
                     Log.e("error","null data");
+                    mProgressDialog.dismiss();
                 }
             }
 

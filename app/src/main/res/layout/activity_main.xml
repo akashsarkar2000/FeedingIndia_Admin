@@ -26,53 +26,57 @@
             app:backgroundTint="#121E6C"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.178" />
+            app:layout_constraintTop_toBottomOf="@+id/main_page_toolbar"
+            app:layout_constraintVertical_bias="0.083" />
 
         <Button
             android:id="@+id/add_user"
             android:layout_width="244dp"
             android:layout_height="136dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/button"
             android:text="@string/add_user"
             android:textSize="20sp"
             app:backgroundTint="#701035"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintHorizontal_bias="0.481"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.657" />
+            app:layout_constraintTop_toBottomOf="@+id/donor_list"
+            app:layout_constraintVertical_bias="0.071" />
 
         <Button
             android:id="@+id/donor_list"
             android:layout_width="244dp"
             android:layout_height="136dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/button"
             android:text="@string/donor_list"
             android:textSize="20sp"
             app:backgroundTint="#386015"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintHorizontal_bias="0.481"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.418" />
+            app:layout_constraintTop_toBottomOf="@+id/charity_list"
+            app:layout_constraintVertical_bias="0.037" />
 
         <Button
             android:id="@+id/queries"
             android:layout_width="244dp"
             android:layout_height="136dp"
             android:background="@drawable/button"
-            android:text="@string/queries"
+            android:text="User Queries"
             android:textSize="20sp"
             app:backgroundTint="#07474E"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.901" />
+            app:layout_constraintTop_toBottomOf="@+id/add_user"
+            app:layout_constraintVertical_bias="0.326" />
 </androidx.constraintlayout.widget.ConstraintLayout>

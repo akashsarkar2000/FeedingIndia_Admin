@@ -146,21 +146,6 @@ public class DonorList extends AppCompatActivity {
 
         }
 
-//        public void setUserStatus(String status){
-//
-//            TextView userStatusView = mView.findViewById(R.id.donor_address);
-//            userStatusView.setText(status);
-//
-//        }
-
-
-
-//        public void setUserImage(String thumb_image, Context context){
-//
-//            CircleImageView userImageView = mView.findViewById(R.id.user_single_image);
-//            Picasso.get().load(thumb_image).placeholder(R.drawable.default_image).into(userImageView);
-//        }
-
     }
 
     private void deleteDonor(String uid){

@@ -87,8 +87,8 @@ public class DonorDescription extends AppCompatActivity {
         });
 
         mProgressDialog = new ProgressDialog(DonorDescription.this);
-        mProgressDialog.setTitle("Loading Donor data");
-        mProgressDialog.setMessage("Please wait while we load the donor  data.");
+        mProgressDialog.setTitle("Loading Donor");
+        mProgressDialog.setMessage("Please wait while we load the donor data...");
         mProgressDialog.setCanceledOnTouchOutside(false);
         mProgressDialog.show();
 

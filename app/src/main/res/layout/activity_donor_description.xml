@@ -39,7 +39,7 @@
         app:layout_constraintHorizontal_bias="0.434"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.136" />
+        app:layout_constraintVertical_bias="0.153" />
 
     <TextView
         android:id="@+id/donor_description_name"
@@ -62,6 +62,7 @@
         android:id="@+id/donor_description_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autoText="false"
         android:gravity="center"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -95,10 +96,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:autoLink="email"
         android:gravity="center"
         android:text="Email:"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
+        android:textColorLink="#03DF0D"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -127,10 +130,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:autoLink="phone"
+        android:autoText="false"
         android:gravity="center"
         android:text="Phone No.:"
         android:textColor="#FFFFFF"
-        android:textColorLink="#FFFFFF"
+        android:textColorLink="#FBC02D"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

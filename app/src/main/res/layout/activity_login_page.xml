@@ -133,14 +133,14 @@
 
     <Button
         android:id="@+id/signin_button"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_width="74dp"
+        android:layout_height="74dp"
         android:layout_marginTop="60dp"
         android:background="@drawable/register_button"
         android:text="Sign In"
         android:textColor="@color/white"
-        android:visibility="gone"
         android:textSize="22sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
