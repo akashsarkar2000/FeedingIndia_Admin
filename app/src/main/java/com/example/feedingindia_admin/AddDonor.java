@@ -80,10 +80,15 @@ public class AddDonor extends AppCompatActivity {
                 String profession = donorProfession.getText().toString();
                 String password = donorPassword.getText().toString();
                 SetValidation();
-                if (!TextUtils.isEmpty(donor_name) || !TextUtils.isEmpty(profession) || !TextUtils.isEmpty(email) || !TextUtils.isEmpty(phone) || !TextUtils.isEmpty(password)){
+                if (donor_name == null || donor_name.isEmpty() || profession == null || profession.isEmpty() || email == null
+                        || email.isEmpty() || phone == null || phone.isEmpty() || password == null
+                        || password.isEmpty() ){
+                    Toast.makeText(AddDonor.this, "Please fill all detail first", Toast.LENGTH_SHORT).show();
+                }
+                else{
                     // PROGRESS BAR //
-                    mRegProgress.setTitle("Adding Charit ");
-                    mRegProgress.setMessage("Please wait, while we create this account !");
+                    mRegProgress.setTitle("Registering User");
+                    mRegProgress.setMessage("Please wait while we create your account !");
                     mRegProgress.setCanceledOnTouchOutside(false);
                     mRegProgress.show();
                     register_user(donor_name, profession, email, phone, password);
@@ -139,18 +144,32 @@ public class AddDonor extends AppCompatActivity {
         if (donorName.getText().toString().isEmpty()) {
             nameError.setError(getResources().getString(R.string.name_error));
             isNameValid = false;
+            return;
         } else  {
             isNameValid = true;
             nameError.setErrorEnabled(false);
         }
 
+        // Check for a Profession name.
+        if (donorProfession.getText().toString().isEmpty()) {
+            professionError.setError(getResources().getString(R.string.profession_error));
+            isProfessionValid = false;
+            return;
+        } else  {
+            isProfessionValid = true;
+            professionError.setErrorEnabled(false);
+        }
+
+
         // Check for a valid email address.
         if (donorEmail.getText().toString().isEmpty()) {
             emailError.setError(getResources().getString(R.string.email_error));
             isEmailValid = false;
+            return;
         } else if (!Patterns.EMAIL_ADDRESS.matcher(donorEmail.getText().toString()).matches()) {
             emailError.setError(getResources().getString(R.string.error_invalid_email));
             isEmailValid = false;
+            return;
         } else  {
             isEmailValid = true;
             emailError.setErrorEnabled(false);
@@ -160,27 +179,21 @@ public class AddDonor extends AppCompatActivity {
         if (donorPhone.getText().toString().isEmpty()) {
             phoneError.setError(getResources().getString(R.string.phone_error));
             isPhoneValid = false;
+            return;
         } else  {
             isPhoneValid = true;
             phoneError.setErrorEnabled(false);
-        }
-
-        // Check for a registration name.
-        if (donorProfession.getText().toString().isEmpty()) {
-            professionError.setError(getResources().getString(R.string.profession_error));
-            isProfessionValid = false;
-        } else  {
-            isProfessionValid = true;
-            professionError.setErrorEnabled(false);
         }
 
         // Check for a valid password.
         if (donorPassword.getText().toString().isEmpty()) {
             passError.setError(getResources().getString(R.string.password_error));
             isPasswordValid = false;
+            return;
         } else if (donorPassword.getText().length() < 6) {
             passError.setError(getResources().getString(R.string.error_invalid_password));
             isPasswordValid = false;
+            return;
         } else  {
             isPasswordValid = true;
             passError.setErrorEnabled(false);

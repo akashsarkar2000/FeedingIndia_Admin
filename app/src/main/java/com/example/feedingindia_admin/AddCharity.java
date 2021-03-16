@@ -95,7 +95,20 @@ public class AddCharity extends AppCompatActivity {
                 String charityReg = charityRegistration.getText().toString();
                 String password = charityPassword.getText().toString();
                 SetValidation();
-                if (!TextUtils.isEmpty(charity_name) || !TextUtils.isEmpty(email) || !TextUtils.isEmpty(phone) || !TextUtils.isEmpty(charityReg) || !TextUtils.isEmpty(password)){
+                if (email == null || email.isEmpty() || phone == null || phone.isEmpty() || charityReg == null
+                        || charityReg.isEmpty() || password == null
+                        || password.isEmpty() ){
+                    Toast.makeText(AddCharity.this, "Please fill all detail first", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    proof.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            CropImage.activity()
+                                    .setGuidelines(CropImageView.Guidelines.ON)
+                                    .start(AddCharity.this);
+                        }
+                    });
                     // PROGRESS BAR //
                     mProgressDialog.setTitle("Registering User");
                     mProgressDialog.setMessage("Please wait while we create your account !");
@@ -103,15 +116,6 @@ public class AddCharity extends AppCompatActivity {
                     mProgressDialog.show();
                     register_user(charity_name, email, phone, charityReg, password);
                 }
-            }
-        });
-
-        proof.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CropImage.activity()
-                        .setGuidelines(CropImageView.Guidelines.ON)
-                        .start(AddCharity.this);
             }
         });
 
