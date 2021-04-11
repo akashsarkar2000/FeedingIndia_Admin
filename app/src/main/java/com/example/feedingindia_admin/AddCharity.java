@@ -152,86 +152,86 @@ public class AddCharity extends AppCompatActivity {
                     userMap.put("proof_url",getProof_url());
                     mDatabase.setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()){
-                                    mProgressDialog.dismiss();
-                                    Intent mainIntent = new Intent(AddCharity.this, MainActivity.class);
-                                    Toast.makeText(AddCharity.this,"Charity Account created successfully, check database",Toast.LENGTH_LONG).show();
-                                    mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    startActivity(mainIntent);
-                                    finish();
-                                }
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()){
+                                mProgressDialog.dismiss();
+                                Intent mainIntent = new Intent(AddCharity.this, MainActivity.class);
+                                Toast.makeText(AddCharity.this,"Charity Account created successfully, check database",Toast.LENGTH_LONG).show();
+                                mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(mainIntent);
+                                finish();
                             }
-                        });
-                    }
-                    else{
+                        }
+                    });
+                }
+                else{
                     mProgressDialog.hide();
                     Log.i("lol",task.getException().getMessage());
                     Toast.makeText(AddCharity.this,"Cannot Sign in. Please check the form and try again",Toast.LENGTH_LONG).show();
-                    }
                 }
-            });
+            }
+        });
+    }
+
+
+    public void SetValidation() {
+        // Check for a valid name.
+        if (charityName.getText().toString().isEmpty()) {
+            nameError.setError(getResources().getString(R.string.name_error));
+            isNameValid = false;
+        } else  {
+            isNameValid = true;
+            nameError.setErrorEnabled(false);
         }
 
+        // Check for a valid email address.
+        if (charityEmail.getText().toString().isEmpty()) {
+            emailError.setError(getResources().getString(R.string.email_error));
+            isEmailValid = false;
+        }
+        else if (!Patterns.EMAIL_ADDRESS.matcher(charityEmail.getText().toString()).matches()) {
+            emailError.setError(getResources().getString(R.string.error_invalid_email));
+            isEmailValid = false;
+        }
+        else  {
+            isEmailValid = true;
+            emailError.setErrorEnabled(false);
+        }
 
-        public void SetValidation() {
-            // Check for a valid name.
-            if (charityName.getText().toString().isEmpty()) {
-                nameError.setError(getResources().getString(R.string.name_error));
-                isNameValid = false;
-            } else  {
-                isNameValid = true;
-                nameError.setErrorEnabled(false);
-            }
+        // Check for a valid phone number.
+        if (charityPhone.getText().toString().isEmpty()) {
+            phoneError.setError(getResources().getString(R.string.phone_error));
+            isPhoneValid = false;
+        }
+        else  {
+            isPhoneValid = true;
+            phoneError.setErrorEnabled(false);
+        }
 
-            // Check for a valid email address.
-            if (charityEmail.getText().toString().isEmpty()) {
-                emailError.setError(getResources().getString(R.string.email_error));
-                isEmailValid = false;
-            }
-            else if (!Patterns.EMAIL_ADDRESS.matcher(charityEmail.getText().toString()).matches()) {
-                emailError.setError(getResources().getString(R.string.error_invalid_email));
-                isEmailValid = false;
-            }
-            else  {
-                isEmailValid = true;
-                emailError.setErrorEnabled(false);
-            }
+        // Check for a registration name.
+        if (charityRegistration.getText().toString().isEmpty()) {
+            registrationError.setError(getResources().getString(R.string.registration_error));
+            isRegistrationValid = false;
+        }
+        else  {
+            isRegistrationValid = true;
+            registrationError.setErrorEnabled(false);
+        }
 
-            // Check for a valid phone number.
-            if (charityPhone.getText().toString().isEmpty()) {
-                phoneError.setError(getResources().getString(R.string.phone_error));
-                isPhoneValid = false;
-            }
-            else  {
-                isPhoneValid = true;
-                phoneError.setErrorEnabled(false);
-            }
-
-            // Check for a registration name.
-            if (charityRegistration.getText().toString().isEmpty()) {
-                registrationError.setError(getResources().getString(R.string.registration_error));
-                isRegistrationValid = false;
-            }
-            else  {
-                isRegistrationValid = true;
-                registrationError.setErrorEnabled(false);
-            }
-
-            // Check for a valid password.
-            if (charityPassword.getText().toString().isEmpty()) {
-                passError.setError(getResources().getString(R.string.password_error));
-                isPasswordValid = false;
-            }
-            else if (charityPassword.getText().length() < 6) {
-                passError.setError(getResources().getString(R.string.error_invalid_password));
-                isPasswordValid = false;
-            }
-            else  {
-                isPasswordValid = true;
-                passError.setErrorEnabled(false);
-            }
-            if (isNameValid && isEmailValid && isPhoneValid && isPasswordValid && isRegistrationValid) {
+        // Check for a valid password.
+        if (charityPassword.getText().toString().isEmpty()) {
+            passError.setError(getResources().getString(R.string.password_error));
+            isPasswordValid = false;
+        }
+        else if (charityPassword.getText().length() < 6) {
+            passError.setError(getResources().getString(R.string.error_invalid_password));
+            isPasswordValid = false;
+        }
+        else  {
+            isPasswordValid = true;
+            passError.setErrorEnabled(false);
+        }
+        if (isNameValid && isEmailValid && isPhoneValid && isPasswordValid && isRegistrationValid) {
             Toast.makeText(getApplicationContext(), "Please Wait", Toast.LENGTH_SHORT).show();
         }
 
@@ -321,5 +321,3 @@ public class AddCharity extends AppCompatActivity {
         return proof_url;
     }
 }
-
-

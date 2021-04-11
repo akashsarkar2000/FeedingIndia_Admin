@@ -40,7 +40,6 @@ public class CharityPostRequirementsDetails extends AppCompatActivity {
     ImageView mPostImage;
     String key;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +53,6 @@ public class CharityPostRequirementsDetails extends AppCompatActivity {
         Intent intent = getIntent();
         key = intent.getStringExtra("user_id");
 
-        final String user_id = getIntent().getStringExtra("user_id");
         mUsersDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Charity").child(key);
         mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
 

@@ -6,6 +6,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -43,7 +45,11 @@ public class CharityAllCommentsByDonor extends AppCompatActivity {
     private View view;
     private RecyclerView recyclerView;
     String key;
-
+    private RecyclerView mUsersList;
+    private DatabaseReference mUsersDatabase;
+    private ProgressDialog mProgressDialog;
+    private AlertDialog.Builder builder;
+    private String deleteUid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +57,16 @@ public class CharityAllCommentsByDonor extends AppCompatActivity {
         setContentView(R.layout.activity_charity_all_comments_by_donor);
 
         mToolbar = findViewById(R.id.charity_side_comment_by_donor);
+        builder = new AlertDialog.Builder(this);
+        builder.setMessage("Delete") .setTitle("Delete Charity");
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Charity Reviews");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Charity").child(key);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
 
         recyclerView = findViewById(R.id.id_all_charity_comment_list);
 
@@ -66,10 +79,6 @@ public class CharityAllCommentsByDonor extends AppCompatActivity {
         key = intent.getStringExtra("user_id");
 
         Log.i("mykey",firebaseAuth.getCurrentUser().getEmail());
-
-        mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Charity").child(key);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setHasFixedSize(true);
 
         getAllComments();
     }
