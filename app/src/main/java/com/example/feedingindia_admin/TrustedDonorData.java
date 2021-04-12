@@ -1,13 +1,13 @@
 package com.example.feedingindia_admin;
 
-public class CommentData {
+public class TrustedDonorData {
 
     String message;
     String uid;
     String datetime;
     String email;
 
-    public CommentData(){}
+    public TrustedDonorData(){}
 
     public String getMessage() {
         return message;
@@ -30,9 +30,7 @@ public class CommentData {
         this.datetime = datetime;
     }
 
-    public String getEmail() {
-        return email;
-    }
+    public String getEmail() { return email; }
     public void setEmail(String email) {
         this.email = email;
     }

@@ -139,13 +139,6 @@ public class CharityList extends AppCompatActivity {
             userStatusView.setText(email);
 
         }
-
-//        public void setUserImage(String thumb_image, Context context){
-//
-//            CircleImageView userImageView = mView.findViewById(R.id.user_single_image);
-//            Picasso.get().load(thumb_image).placeholder(R.drawable.default_image).into(userImageView);
-//        }
-
     }
     private void deleteCharity(String uid){
         mUsersDatabase.child(uid).removeValue();

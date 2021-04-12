@@ -11,13 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder>{
+public class TrustedDonorAdapter extends RecyclerView.Adapter<TrustedDonorAdapter.ChatViewHolder> {
 
-    private List<CommentData> commentDataList;
+    private List<TrustedDonorData> trustedDonorDataList;
     Context context;
 
-    public ChatAdapter(List<CommentData> commentDataList, Context context) {
-        this.commentDataList = commentDataList;
+    public TrustedDonorAdapter(List<TrustedDonorData> trustedDonorDataList, Context context) {
+        this.trustedDonorDataList = trustedDonorDataList;
         this.context = context;
     }
 
@@ -25,14 +25,13 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
     @NonNull
     @Override
     public ChatViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        return new ChatViewHolder(LayoutInflater.from(context).inflate(R.layout.comment_card,parent,false));
+        return new ChatViewHolder(LayoutInflater.from(context).inflate(R.layout.trusted_card,parent,false));
     }
 
 
     @Override
     public void onBindViewHolder(@NonNull ChatViewHolder holder, int position) {
-        CommentData commentData = commentDataList.get(position);
+        TrustedDonorData commentData = trustedDonorDataList.get(position);
         try {
             holder.date.setText(commentData.getDatetime());
             holder.email.setText(commentData.getEmail());
@@ -45,15 +44,15 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
 
     @Override
     public int getItemCount() {
-        return commentDataList != null ? commentDataList.size() : 0;
+        return trustedDonorDataList != null ? trustedDonorDataList.size() : 0;
     }
     public class ChatViewHolder extends RecyclerView.ViewHolder{
         public TextView email,message,date;
         public ChatViewHolder(@NonNull View itemView) {
             super(itemView);
-            email = itemView.findViewById(R.id.email);
-            message = itemView.findViewById(R.id.message);
-            date = itemView.findViewById(R.id.date);
+            email = itemView.findViewById(R.id.trusted_email);
+            message = itemView.findViewById(R.id.trusted_donor_details);
+            date = itemView.findViewById(R.id.trusted_donor_details_date);
         }
     }
 }

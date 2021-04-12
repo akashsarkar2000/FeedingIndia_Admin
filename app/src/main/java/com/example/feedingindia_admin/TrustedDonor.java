@@ -27,9 +27,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CharityAllCommentsByDonor extends AppCompatActivity {
+public class TrustedDonor extends AppCompatActivity {
 
-    private List<CommentData> commentDataList;
+    private List<TrustedDonorData> trustedDonorDataList;
     private Toolbar mToolbar;
     private EditText editText;
     private ImageButton send;
@@ -48,17 +48,17 @@ public class CharityAllCommentsByDonor extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_charity_all_comments_by_donor);
+        setContentView(R.layout.activity_trusted_donor);
 
-        mToolbar = findViewById(R.id.charity_side_comment_by_donor);
+        mToolbar = findViewById(R.id.charity_side_trusted_donor);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("Charity Reviews");
+        getSupportActionBar().setTitle("Trusted Donor");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        recyclerView = findViewById(R.id.id_all_charity_comment_list);
+        recyclerView = findViewById(R.id.id_all_charity_trusted_donor_list);
 
         view = this.getCurrentFocus();
-        commentDataList = new ArrayList<CommentData>();
+        trustedDonorDataList = new ArrayList<TrustedDonorData>();
         charityKey = getIntent().getStringExtra("key");
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -77,28 +77,16 @@ public class CharityAllCommentsByDonor extends AppCompatActivity {
     }
 
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                Intent intent = new Intent(CharityAllCommentsByDonor.this,CharityDescription.class);
-                intent.putExtra("user_id",charityKey);
-                startActivity(intent);
-                Toast.makeText(getApplicationContext(),"Back button clicked", Toast.LENGTH_SHORT).show();
-                break;
-        }
-        return true;
-    }
 
     private void getAllComments(){
-        mUserDatabase.child("Comments").addValueEventListener(new ValueEventListener() {
+        mUserDatabase.child("Trusted_Donor").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                commentDataList.clear();
+                trustedDonorDataList.clear();
                 for (DataSnapshot data : snapshot.getChildren()){
-                    CommentData commentData = data.getValue(CommentData.class);
-                    commentDataList.add(commentData);
-                    CommentAdapter commentAdapter = new CommentAdapter(commentDataList,CharityAllCommentsByDonor.this);
+                    TrustedDonorData commentData = data.getValue(TrustedDonorData.class);
+                    trustedDonorDataList.add(commentData);
+                    TrustedDonorAdapter commentAdapter = new TrustedDonorAdapter(trustedDonorDataList,TrustedDonor.this);
                     recyclerView.setAdapter(commentAdapter);
                 }
             }
@@ -107,5 +95,5 @@ public class CharityAllCommentsByDonor extends AppCompatActivity {
             }
         });
     }
-}
 
+}

@@ -39,7 +39,7 @@ public class CharityDescription extends AppCompatActivity {
     private DatabaseReference mUsersDatabase;
     private ProgressDialog mProgressDialog;
     private FirebaseUser mCurrentUser;
-    Button mEditInfo, mCharityComments, mPostRequirements;
+    Button mEditInfo, mCharityComments, mPostRequirements, mTrustedDonor;
     String key;
 
     @SuppressLint("CutPasteId")
@@ -47,7 +47,6 @@ public class CharityDescription extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_charity_description);
-
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -74,6 +73,7 @@ public class CharityDescription extends AppCompatActivity {
         mEditInfo = findViewById(R.id.edit_charity_detail_button);
         mPostRequirements = findViewById(R.id.edit_charity_post_requirements__button);
         mCharityComments = findViewById(R.id.edit_charity_comments__button);
+        mTrustedDonor = findViewById(R.id.edit_charity_trusted_donor_button);
 
 
         if (mAuth.getCurrentUser() != null) {
@@ -85,7 +85,18 @@ public class CharityDescription extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // redirect to RegisterActivity
-                Intent intent = new Intent(getApplicationContext(), CharityAllCommentsByDonor .class);
+                Intent intent = new Intent(getApplicationContext(), CharityAllCommentsByDonor.class);
+                intent.putExtra("user_id",key);
+                startActivity(intent);
+            }
+        });
+
+
+        mTrustedDonor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // redirect to RegisterActivity
+                Intent intent = new Intent(getApplicationContext(), TrustedDonor.class);
                 intent.putExtra("user_id",key);
                 startActivity(intent);
             }
@@ -113,14 +124,11 @@ public class CharityDescription extends AppCompatActivity {
             }
         });
 
-
-
         mProgressDialog = new ProgressDialog(CharityDescription.this);
         mProgressDialog.setTitle("Loading Charity data");
         mProgressDialog.setMessage("Please wait while we load the charity data.");
         mProgressDialog.setCanceledOnTouchOutside(false);
         mProgressDialog.show();
-
 
 
         mUsersDatabase.addValueEventListener(new ValueEventListener() {
