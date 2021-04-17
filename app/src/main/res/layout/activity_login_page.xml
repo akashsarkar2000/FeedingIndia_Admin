@@ -98,30 +98,11 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <TextView
-        android:id="@+id/forget_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="188dp"
-        android:layout_marginBottom="17dp"
-        android:padding="10dp"
-        android:text="@string/forget_password_username"
-        android:textSize="12sp"
-        android:textStyle="italic"
-
-        app:layout_constraintBottom_toTopOf="@+id/Login_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:layout_marginLeft="188dp" />
-
     <Button
         android:id="@+id/login_button"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/register_button"
         android:text="@string/log_in"
         android:textColor="@color/white"
