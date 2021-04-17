@@ -10,16 +10,16 @@
 
     <TextView
         android:id="@+id/Welcome"
-        android:layout_width="288dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="100dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="cursive"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="90dp"
+        android:fontFamily="@font/krona_one"
         android:gravity="center"
         android:text="Fedding India\nAdmin Section"
-        android:textColor="@color/purple_200"
-        android:textSize="40sp"
+        android:textColor="#52489C"
+        android:textSize="32sp"
         android:textStyle="bold"
         android:transitionName="logo_text" />
 
@@ -100,10 +100,10 @@
 
     <Button
         android:id="@+id/login_button"
+        android:background="@drawable/background"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="50dp"
-        android:background="@drawable/register_button"
         android:text="@string/log_in"
         android:textColor="@color/white"
         android:textSize="22sp"
