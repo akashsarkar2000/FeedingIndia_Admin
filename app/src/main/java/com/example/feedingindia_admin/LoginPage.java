@@ -40,7 +40,7 @@ public class LoginPage extends AppCompatActivity {
         mEmail = findViewById(R.id.email);
         mPassword = findViewById(R.id.password);
         login = findViewById(R.id.login_button);
-        register = findViewById(R.id.signin_button);
+//        register = findViewById(R.id.signin_button);
         key = findViewById(R.id.key);
         emailError = findViewById(R.id.login_Email);
         passError = findViewById(R.id.Login_password);
